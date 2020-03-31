@@ -1,0 +1,44 @@
+{% for idea in ideas%}
+
+<div class="idea">
+    <img src="{{idea.image}}" alt="Imagem de {{idea.title}}">
+    
+    <div id="content">
+        <h3>{{idea.title}}</h3>
+        <p>{{idea.category}}</p>
+        <div id="description">
+            {{idea.description}}
+        </div>
+        <a href="{{idea.link}}" target="_blank">Ir para a ideia</a>
+
+    </div>
+
+    <div id="delete">
+        {{idea.identificator}}
+
+        <button class="btn" id="deletebtn" onclick="openForm('{{idea.id}}')">
+            <i class="fa fa-trash"></i></button>
+        
+            <div class="form-popup" id="myForm">   
+                <form action="/" method="POST" onsubmit="return checkLogin(event)" class="form-container">
+                  <h1>Login</h1>
+              
+                  <label for="email"><b>Usuário</b></label>
+                  <input id="user" type="text" placeholder="Digite usuário" name="email" required>
+              
+                  <label for="psw"><b>Password</b></label>
+                  <input id="senha" type="password" placeholder="Digite senha" name="psw" required>
+
+                  <input id="idtosend"  type="idtosend" name="id">
+              
+                  <button type="submit" class="btn" >Login</button>
+                  <button type="nosubmit" class="btn cancel" onclick="closeForm()">Fechar</button>
+                </form>
+              </div>
+
+    </div>
+    
+
+</div>
+
+{%endfor%}
