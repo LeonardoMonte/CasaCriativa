@@ -162,7 +162,7 @@ server.get("/ideias",function(req,res)
     
 })
 
-server.post("/",function(req,res)
+server.post("/delete",function(req,res)
 {
     
     db.run(`DELETE FROM ideas WHERE id = ?`,[req.body.id],function(err)
